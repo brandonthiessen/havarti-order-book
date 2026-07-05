@@ -1,5 +1,8 @@
 #include "bench.h"
 
+#include <algorithm>
+#include <cmath>
+#include <format>
 #include <iostream>
 #include <numeric>
 #include <vector>
@@ -32,7 +35,7 @@ compute_bench_result(const BenchData& d)
     if (!d.latencies_ns.empty()) {
         r.has_latency = true;
 
-        std::vector<uint64_t> latencies = d.latencies_ns;
+        auto latencies = d.latencies_ns;
         std::sort(latencies.begin(), latencies.end());
 
         size_t p50_idx = pct_idx(N, 50);
