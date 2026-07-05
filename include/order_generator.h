@@ -11,7 +11,9 @@ class OrderGenerator {
         OrderGenerator(int seed);
         OrderGenerator(int seed, int64_t price_low, int64_t price_high, int qty_low, int qty_high);
         Order next_order();
+        Order next_order(Side side);
         std::vector<Order> next_orders(int n);
+        std::vector<Order> next_orders(int n, Side side);
     private:
         std::mt19937 rng;
         std::uniform_int_distribution<int> side_dist;

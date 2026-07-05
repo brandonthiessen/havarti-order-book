@@ -14,6 +14,11 @@ OrderGenerator::next_order()
     return Order{next_id++, side_dist(rng) == 0 ? Side::BUY : Side::SELL, price_dist(rng), qty_dist(rng)};
 }
 
+Order
+OrderGenerator::next_order(Side side) {
+    return Order{next_id++, side, price_dist(rng), qty_dist(rng)};
+}
+
 std::vector<Order>
 OrderGenerator::next_orders(int n)
 {
@@ -22,6 +27,19 @@ OrderGenerator::next_orders(int n)
 
     for (int i = 0; i < n; i++) {
         orders.push_back(next_order());
+    }
+
+    return orders;
+}
+
+std::vector<Order>
+OrderGenerator::next_orders(int n, Side side)
+{
+    std::vector<Order> orders;
+    orders.reserve(n);
+
+    for (int i = 0; i < n; i++) {
+        orders.push_back(next_order(side));
     }
 
     return orders;
