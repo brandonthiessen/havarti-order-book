@@ -5,8 +5,8 @@
 BenchData bench_deep_book() {
     BenchData d;
 
-    OrderBook book;
-    OrderGenerator gen{42};
+    havarti::OrderBook book;
+    havarti::OrderGenerator gen{42};
 
     // Pre-populate with 100k buy orders
     size_t warmup = 100'000;
@@ -17,7 +17,7 @@ BenchData bench_deep_book() {
 
     // Now send 1M sell orders to hit that deep book
     size_t N = 1'000'000;
-    auto aggressive_orders = gen.next_orders(N, Side::SELL);
+    auto aggressive_orders = gen.next_orders(N, havarti::Side::SELL);
     d.num_orders = N;
 
     d.start_ts = bench::now();

@@ -5,21 +5,21 @@
 BenchData bench_one_sided_pressure() {
     BenchData d;
 
-    OrderBook book;
+    havarti::OrderBook book;
 
     // Generate orders biased 70:30 buys:sells
-    OrderGenerator gen_buys{42, 9500, 9900, 1, 100};
-    OrderGenerator gen_sells{43, 10100, 10500, 1, 100};
+    havarti::OrderGenerator gen_buys{42, 9500, 9900, 1, 100};
+    havarti::OrderGenerator gen_sells{43, 10100, 10500, 1, 100};
 
     size_t num_buys = 7'000'000;
     size_t num_sells = 3'000'000;
     d.num_orders = num_buys + num_sells;
 
-    auto buys = gen_buys.next_orders(num_buys, Side::BUY);
-    auto sells = gen_sells.next_orders(num_sells, Side::SELL);
+    auto buys = gen_buys.next_orders(num_buys, havarti::Side::BUY);
+    auto sells = gen_sells.next_orders(num_sells, havarti::Side::SELL);
 
     // Interleave: 70% from buy queue, 30% from sell queue
-    std::vector<Order> orders;
+    std::vector<havarti::Order> orders;
     orders.reserve(num_buys + num_sells);
     int i = 0, j = 0, k = 0;
     while (i < num_buys || j < num_sells) {

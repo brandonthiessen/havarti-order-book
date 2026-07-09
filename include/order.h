@@ -2,6 +2,8 @@
 
 #include <cstdint>
 
+namespace havarti {
+
 enum class Side {
     BUY, SELL
 };
@@ -19,3 +21,5 @@ struct BookOrder {
     BookOrder(const Order& o, int r)
         : order(o), remaining(r) {}
 };
+
+} // namespace havarti

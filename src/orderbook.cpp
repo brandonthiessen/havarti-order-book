@@ -1,5 +1,7 @@
 #include "orderbook.h"
 
+namespace havarti {
+
 std::vector<Trade>
 OrderBook::add_order(const Order& incoming)
 {
@@ -87,3 +89,5 @@ OrderBook::add_order(const Order& incoming)
 
     return trades;
 }
+
+} // namespace havarti

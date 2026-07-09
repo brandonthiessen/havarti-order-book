@@ -7,6 +7,8 @@
 #include <map>
 #include <vector>
 
+namespace havarti {
+
 class OrderBook {
     public:
         std::vector<Trade> add_order(const Order& incoming);
@@ -17,3 +19,5 @@ class OrderBook {
         // Ordered by price (low-high)
         std::map<int64_t, std::deque<BookOrder>, std::less<int64_t>> sells;
 };
+
+} // namespace havarti

@@ -5,8 +5,8 @@
 BenchData bench_throughput() {
     BenchData d;
 
-    OrderBook book;
-    OrderGenerator gen{42};
+    havarti::OrderBook book;
+    havarti::OrderGenerator gen{42};
 
     size_t N = 10'000'000;
     d.num_orders = N;

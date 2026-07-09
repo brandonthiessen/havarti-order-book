@@ -3,6 +3,8 @@
 #include <iostream>
 #include <format>
 
+namespace havarti {
+
 enum class LogLevel {
     OFF = 0,
     ERROR = 1,
@@ -29,3 +31,5 @@ public:
     do { if (Logger::level >= LogLevel::DEBUG) \
         std::cout << std::format("[DEBUG] " fmt "\n", __VA_ARGS__); \
     } while(0)
+
+} // namespace havarti

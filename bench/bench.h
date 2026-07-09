@@ -45,7 +45,7 @@ struct BenchData {
     size_t num_orders = 0;
 
     std::vector<uint64_t> latencies_ns;
-    std::vector<std::vector<Trade>> trades;
+    std::vector<std::vector<havarti::Trade>> trades;
 
     bench::TimePoint start_ts{};
     bench::TimePoint end_ts{};

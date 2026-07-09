@@ -2,9 +2,11 @@
 
 #include "order.h"
 
-static constexpr int64_t MID_PRICE = 1000; // 10.00
-
 #include <random>
+
+namespace havarti {
+
+static constexpr int64_t MID_PRICE = 1000; // 10.00
 
 class OrderGenerator {
     public:
@@ -22,3 +24,5 @@ class OrderGenerator {
 
         int next_id = 1;
 };
+
+} // namespace havarti

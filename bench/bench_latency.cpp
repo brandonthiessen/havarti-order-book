@@ -5,8 +5,8 @@
 BenchData bench_latency() {
     BenchData d;
 
-    OrderBook book;
-    OrderGenerator gen{42};
+    havarti::OrderBook book;
+    havarti::OrderGenerator gen{42};
 
     size_t N = 1'000'000;
     d.num_orders = N;

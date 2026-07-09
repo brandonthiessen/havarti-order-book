@@ -4,6 +4,8 @@
 #include <cassert>
 #include <cstddef>
 
+namespace havarti {
+
 // A single-producer, single-consumer ring buffer
 // Note: actual usable number of entries is `capacity - 1`.
 template <typename T>
@@ -95,3 +97,5 @@ SpscRingBuffer<T>::empty() const
     size_t head = head_.load(std::memory_order_relaxed);
     return head == tail;
 }
+
+} // namespace havarti
